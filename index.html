@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Struktur Data</title>
+    <style>
+        * {
+            font-size: 20px;
+            box-sizing: border-box;
+        }
+        .container {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form {
+            border: 1px solid gainsboro;
+            padding: 30px;
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+        }
+        p {
+            margin: 0;
+        }
+        input {
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+            <form>
+                <table>
+                    <tr>
+                        <td><label for="nama"><p>Nama</p></label></td>
+                        <td><input type="text" id="nama"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="tanggal"><p>Tanggal Pendaftaran</p></label></td>
+                        <td><input type="date" id="tanggal"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="umur"><p>Umur</p></label></td>
+                        <td><input type="number" id="umur"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type="button" onclick="ganti()">Submit</button></td>
+                    </tr>
+                </table>
+            </form>
+            <ol>
+                <li>Nama : <span id="namaOut"></span></li>
+                <li>Tanggal Pendaftaran : <span id="tanggalOut"></span></li>
+                <li>Umur : <span id="umurOut"></span></li>
+            </ol>
+        </div>
+    </div>
+    
+
+    <script>
+        const nama = document.getElementById("nama")
+        const tanggal = document.getElementById("tanggal")
+        const umur = document.getElementById("umur")
+
+        const namaOut = document.getElementById("namaOut")
+        const tanggalOut = document.getElementById("tanggalOut")
+        const umurOut = document.getElementById("umurOut")
+
+        function ganti() {
+            const dateInput = tanggal.value
+
+            const dateArray = dateInput.split("-")
+
+            const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+            const d = dateArray[1] - 1
+
+            const newDate = `${dateArray[2]} ${monthNames[d]} ${dateArray[0]}`
+            
+            namaOut.innerHTML = nama.value;
+            umurOut.innerHTML = umur.value;
+            tanggalOut.innerHTML = newDate;
+        }
+    </script>
+
+</body>
+</html>
